@@ -10,17 +10,13 @@ public class ConnectionEx {
         Connection con = null;
 
         try {
-            // 1. 오라클 드라이버 로드
+            // 1. JDBC 드라이버 등록
             Class.forName("oracle.jdbc.OracleDriver");
 
-            // 2. url, user, password
-            // localhost(== 127.0.0.1) : 로컬 컴퓨터를 의미
-            // DB 서버가 설치된 주소를 작성
-            // 1521 : port 번호(오라클 서버의 기본 포트 번호)
-            // xe : 오라클 서버의 인스턴스 이름
-            String url = "jdbc:oracle:thin:@localhost:1521:xe";
-            String user = "scott";
-            String password = "TIGER";
+            // 2. Connection 얻기            
+            String url = "jdbc:oracle:thin:@localhost:1521:xe";    // 연결문자열
+            String user = "c##java"; 	                           // 사용자
+            String password = "12345";                             // 비밀번호
 
             con = DriverManager.getConnection(url, user, password);
 
@@ -30,6 +26,14 @@ public class ConnectionEx {
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        } finally {
+        	if(con != null) {
+        		try {
+        			con.close();                                       // 연결 종료
+        		} catch (SQLException e) {				
+        			e.printStackTrace();
+        		}        		
+        	}
+		}
     }
 }
