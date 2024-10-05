@@ -1,6 +1,11 @@
 package ch02;
 
+import java.util.Scanner;
+
 public class BoardEx {
+	
+	//사용자 입력을 받기 위한 Scanner 생성
+	private Scanner sc = new Scanner(System.in);
 
 	public void list() {
 		System.out.println();
@@ -15,6 +20,19 @@ public class BoardEx {
 		mainMenu();		
 	}
 	
+	public void create() {
+		System.out.println("create 실행");
+	}
+	public void read() {
+		System.out.println("read 실행");
+	}
+	public void clear() {
+		System.out.println("clear 실행");
+	}
+	public void exit() {
+		System.out.println("exit 실행");
+	}
+	
 	public void mainMenu() {
 		System.out.println();
 		System.out.println("[메인메뉴]");
@@ -22,7 +40,16 @@ public class BoardEx {
 		System.out.println("1. Create | 2. Read | 3. Clear | 4. Exit");
 		System.out.println("-----------------------------------------------");
 		System.out.print("메뉴 선택 >> ");
+		int menu = Integer.parseInt(sc.nextLine());
+		
 		System.out.println();
+		
+		switch(menu) {
+		case 1 -> create();
+		case 2 -> read();
+		case 3 -> clear();
+		case 4 -> exit();
+		}
 	}	
 	
 	public static void main(String[] args) {

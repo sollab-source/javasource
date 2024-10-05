@@ -20,12 +20,10 @@ public class UserAddEx {
             String user = "c##java"; 	                           // 사용자
             String password = "12345";                             // 비밀번호
 
-            con = DriverManager.getConnection(url, user, password);
-            
+            con = DriverManager.getConnection(url, user, password);            
             
             // 3. 매개 변수화된 SQL 문 작성
-            String sql = "INSERT INTO usertbl(userid, name, password, age, email) ";
-            sql += "VALUES ('winter','한겨울','12345',25,'winter@company.com')";
+            String sql = "INSERT INTO usertbl(userid, name, password, age, email) ";     
             sql += "VALUES (?,?,?,?,?)";
             
             // 4. PreparedStatement 얻기 및 값 지정
@@ -34,8 +32,7 @@ public class UserAddEx {
             pstmt.setString(2, "김가을");
             pstmt.setString(3, "12345");
             pstmt.setInt(4, 20);
-            pstmt.setString(5, "autumn@company.com");
-            
+            pstmt.setString(5, "autumn@company.com");            
 
             // 5. SQL 구문 실행
             int rows = pstmt.executeUpdate();
