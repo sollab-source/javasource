@@ -1,7 +1,5 @@
 package ch01;
 
-
-
 public class UserDto {
 	private String userid; 
 	private String name; 
@@ -9,8 +7,7 @@ public class UserDto {
 	private int age; 
 	private String email;
 	
-	// getter, setter, toString 생성
-	
+	// getter, setter, toString 생성	
 	public String getUserid() {
 		return userid;
 	}

@@ -3,9 +3,10 @@ package ch01;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserDeleteEx {
+public class UserSelectEx {
 
 	public static void main(String[] args) {
 		
@@ -24,17 +25,26 @@ public class UserDeleteEx {
             
             
             // 3. 매개 변수화된 SQL 문 작성
-            String sql = "DELETE FROM userTBL WHERE userid = ?";            
+            String sql = "SELECT userid, name, password, age, email FROM  usertbl WHERE userid=?";           
             
             // 4. PreparedStatement 얻기 및 값 지정
             PreparedStatement pstmt = con.prepareStatement(sql);
-            pstmt.setString(1, "winter");           
+            pstmt.setString(1, "emily");
             
-
             // 5. SQL 구문 실행
-            int rows = pstmt.executeUpdate();
-            System.out.println("삭제된 user 수 : "+rows);	
+            ResultSet rs = pstmt.executeQuery();
+            if(rs.next()) {
+            	UserDto userDto = new UserDto();
+            	userDto.setUserid(rs.getString("userid"));
+            	userDto.setName(rs.getString("name"));
+            	userDto.setPassword(rs.getString("password"));
+            	userDto.setAge(rs.getInt("age"));
+            	userDto.setEmail(rs.getString("email"));
+            }else {
+            	System.out.println("사용자 아이디가 존재하지 않음");
+            }
             
+            rs.close();
             pstmt.close();
 
         } catch (ClassNotFoundException e) {

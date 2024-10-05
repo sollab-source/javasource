@@ -24,21 +24,17 @@ public class UserUpdateEx {
             
             
             // 3. 매개 변수화된 SQL 문 작성
-            String sql = "INSERT INTO usertbl(userid, name, password, age, email) ";
-            sql += "VALUES (?,?,?,?,?)";
+            String sql = "UPDATE usertbl SET email = ? WHERE userid = ?";            
             
             // 4. PreparedStatement 얻기 및 값 지정
             PreparedStatement pstmt = con.prepareStatement(sql);
-            pstmt.setString(1, "autumn1");
-            pstmt.setString(2, "김가을");
-            pstmt.setString(3, "12345");
-            pstmt.setInt(4, 20);
-            pstmt.setString(5, "autumn1@company.com");
+            pstmt.setString(1, "winter77@naver.com");
+            pstmt.setString(2, "winter");
             
 
             // 5. SQL 구문 실행
             int rows = pstmt.executeUpdate();
-            System.out.println("추가된 user 수 : "+rows);	
+            System.out.println("수정된 user 수 : "+rows);	
             
             pstmt.close();
 

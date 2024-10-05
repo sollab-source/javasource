@@ -25,15 +25,16 @@ public class UserAddEx {
             
             // 3. 매개 변수화된 SQL 문 작성
             String sql = "INSERT INTO usertbl(userid, name, password, age, email) ";
+            sql += "VALUES ('winter','한겨울','12345',25,'winter@company.com')";
             sql += "VALUES (?,?,?,?,?)";
             
             // 4. PreparedStatement 얻기 및 값 지정
             PreparedStatement pstmt = con.prepareStatement(sql);
-            pstmt.setString(1, "autumn1");
+            pstmt.setString(1, "autumn");
             pstmt.setString(2, "김가을");
             pstmt.setString(3, "12345");
             pstmt.setInt(4, 20);
-            pstmt.setString(5, "autumn1@company.com");
+            pstmt.setString(5, "autumn@company.com");
             
 
             // 5. SQL 구문 실행
