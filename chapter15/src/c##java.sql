@@ -45,6 +45,9 @@ create table boards(
 	regdate DATE DEFAULT sysdate
 );
 
+-- 시퀀스 생성
+CREATE SEQUENCE board_seq;
+
 
 
 
