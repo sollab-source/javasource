@@ -1,21 +1,29 @@
 package ch01;
 
 class Outer3 {
-	private int iPos = 10;            // 외부 클래스 인스턴스 변수
-	private static int sPos = 20;     // 외부 클래스 정적 변수
+	// 외부 클래스 인스턴스 변수
+	private int iPos = 10;            
+	// 외부 클래스 정적 변수
+	private static int sPos = 20;     
 	
 	
 	 void outerMethod() {
 		
-		int localNum = 1;                  // 외부 클래스 메소드 내 로컬 변수(final 임)
+		 // 외부 클래스 메소드 내 로컬 변수(final 임)
+		int localNum = 1;                 
 		
-		class Inner{                       // 내부 클래스 선언
-			int iNum = 100;                // 내부 클래스 인스턴스 변수
-			static int sNum = 200;         // 내부 클래스 정적 변수		
+		// 내부 클래스 선언
+		class Inner{           
+			// 내부 클래스 인스턴스 변수
+			int iNum = 100;                
+			// 내부 클래스 정적 변수		
+			static int sNum = 200;         
 			
-			void method() {	               // 내부 클래스 메소드 선언		
+			// 내부 클래스 메소드 선언	
+			void method() {	               	
 				
-				// localNum = 20;(X)       // localNum 은 final 이기 때문에 수정 불가
+				// localNum 은 final 이기 때문에 수정 불가
+				// localNum = 20;(X)       
 				
 				System.out.printf("Outer Class iPos = %d (외부 클래스 인스턴스 변수)\n",iPos);
 				System.out.printf("Outer Class sPos = %d (외부 클래스 정적 변수)\n",sPos);
@@ -27,8 +35,10 @@ class Outer3 {
 			}		
 		} // 내부 클래스 종료		
 		
-		Inner inner = new Inner();        // 지역 내부 클래스 인스턴스 생성
-		inner.method();                   // 지역 내부 클래스 메소드 호출
+		// 지역 내부 클래스 인스턴스 생성
+		Inner inner = new Inner();       
+		// 지역 내부 클래스 메소드 호출
+		inner.method();                   
 		
 	} //method 종료	 
 } // 외부 클래스 종료

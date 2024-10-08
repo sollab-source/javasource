@@ -3,25 +3,32 @@ package ch01;
 import ch01.Outer.Inner;
 
 class Outer {
-	private int iPos = 10;           // 외부 클래스 인스턴스 변수
-	private static int sPos = 20;    // 외부 클래스 정적 변수
+	// 외부 클래스 인스턴스 변수
+	private int iPos = 10;  
+	// 외부 클래스 정적 변수
+	private static int sPos = 20;    
 	
-	private Inner inner;            // 내부 클래스 참조 변수 선언
+	// 내부 클래스 참조 변수 선언
+	private Inner inner;            
 	
 	
-//	public Outer() {
-//		inner = new Inner();        // 외부 클래스 생성자에서 내부 클래스 인스턴스 생성 
-//	}	
+	// 외부 클래스 생성자에서 내부 클래스 인스턴스 생성 
+	public Outer() {
+		inner = new Inner();        
+	}	
 	
-	class Inner{                    // 내부 클래스 선언
-		int iNum = 100;             // 내부 클래스 인스턴스 변수
+	// 내부 클래스 선언
+	class Inner{           
+		// 내부 클래스 인스턴스 변수
+		int iNum = 100;             
 		static int sNum = 200;
 		
 		static void print() {
 			System.out.println("안녕하세요");
 		}
 		
-		void method() {             // 내부 클래스 인스턴스 메소드
+		 // 내부 클래스 인스턴스 메소드
+		void method() {            
 			System.out.printf("Outer class num = %d (외부 클래스 인스턴스 변수)\n",iPos);
 			System.out.printf("Outer class pos = %d (외부 클래스 정적 변수)\n",sPos);
 			System.out.printf("Inner class iNum = %d (내부 클래스 인스턴스 변수)\n",iNum);
@@ -30,7 +37,8 @@ class Outer {
 	} // 내부 클래스 종료
 	
 	public void start() {
-		inner.method();             // 내부 클래스 메소드 호출
+		// 내부 클래스 메소드 호출
+		inner.method();             
 	}
 }// 외부 클래스 종료
 
@@ -41,7 +49,7 @@ public class InnerEx1 {
 		outer.start();
 
 		
-//	    인스턴스 내부 클래스 직접 생성하는 방법
+		// 인스턴스 내부 클래스 직접 생성하는 방법
 		Outer out = new Outer();
 		Outer.Inner inClass = out.new Inner();
 		inClass.method();
