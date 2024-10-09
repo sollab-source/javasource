@@ -1,10 +1,6 @@
 package ch02;
 
-import java.util.List;
 import java.util.Scanner;
-
-import ch03.BoardDAO;
-import ch03.BoardDTO;
 
 public class UserMain {
 
@@ -12,7 +8,7 @@ public class UserMain {
 	private Scanner sc = new Scanner(System.in);
 	// 데이터베이스 작업을 위한 인스턴스 생성
 	private UserDAO dao = new UserDAO();
-	
+
 	public static void main(String[] args) {
 		UserMain main = new UserMain();
 		main.start();
@@ -41,18 +37,19 @@ public class UserMain {
 	}
 
 	public void userRead() {
-		System.out.println("특정 user 조회");
+//		System.out.println("특정 user 조회");
+		
 	}
-	
+
 	public void userCreate() {
 		System.out.println("user 정보 추가");
 	}
-	
+
 	public void userUpdate() {
 		System.out.println("특정 user 정보 수정");
 	}
-	
+
 	public void userRemove() {
 		System.out.println("특정 user 정보 삭제");
-	}	
+	}
 }
