@@ -37,12 +37,24 @@ public class UserMain {
 	}
 
 	public void userRead() {
-//		System.out.println("특정 user 조회");
 		
+		System.out.print("검색한 아이디 입력 >> ");
+		String userid = sc.nextLine();
+		
+		UserDTO user = dao.select(userid);
+		
+		System.out.println();
+		System.out.println("조회 결과");
+		System.out.println("==============");
+		System.out.println("▶ 아이디 : "+user.getUserid());
+		System.out.println("▶ 비밀번호 : "+user.getPassword());
+		System.out.println("▶ 이메일 : "+user.getEmail());
+		System.out.println("▶ 이름 : "+user.getName());
+		System.out.println("▶ 나이 : "+user.getAge());			
 	}
 
 	public void userCreate() {
-		System.out.println("user 정보 추가");
+		//System.out.println("user 정보 추가");
 	}
 
 	public void userUpdate() {
