@@ -1,8 +1,8 @@
-package ch02;
+package ch03;
 
 import java.util.Date;
 
-public class BoardDto {
+public class BoardDTO {
 	private int bno;
 	private String title;
 	private String content;

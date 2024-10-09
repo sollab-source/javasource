@@ -1,16 +1,16 @@
-package ch01;
+package ch02;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ConnectionEx {
+public class ConnectionEx01 {
     public static void main(String[] args) {
 
         Connection con = null;
 
         try {
-            // 1. JDBC 드라이버 등록
+            // 1. JDBC 드라이버 로드
             Class.forName("oracle.jdbc.OracleDriver");
 
             // 2. Connection 얻기            

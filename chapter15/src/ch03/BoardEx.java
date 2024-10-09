@@ -1,4 +1,4 @@
-package ch02;
+package ch03;
 
 import java.util.List;
 import java.util.Scanner;
@@ -8,11 +8,11 @@ public class BoardEx {
 	// 사용자 입력을 받기 위한 Scanner 생성
 	private Scanner sc = new Scanner(System.in);
 	// 데이터베이스 작업을 위한 인스턴스 생성
-	private BoardDao dao = new BoardDao();
+	private BoardDAO dao = new BoardDAO();
 
 	public void list() {
 		// 전체 게시물 조회
-		List<BoardDto> list = dao.getRows();
+		List<BoardDTO> list = dao.getRows();
 
 		System.out.println();
 		System.out.println("[게시물 목록]");
@@ -20,7 +20,7 @@ public class BoardEx {
 		System.out.printf("%-6s%-40s%-20s%-12s\n", "no", "title", "writer", "regdate");
 		System.out.println("------------------------------------------------------------------------------------");
 
-		for (BoardDto boardDto : list) {
+		for (BoardDTO boardDto : list) {
 			System.out.printf("%-6s%-35s%-20s%-12s\n", boardDto.getBno(), boardDto.getTitle(), boardDto.getWriter(),
 					boardDto.getRegDate());
 		}
@@ -39,7 +39,7 @@ public class BoardEx {
 		System.out.print("작성자 : ");
 		String writer = sc.nextLine();
 
-		BoardDto insertDto = new BoardDto();
+		BoardDTO insertDto = new BoardDTO();
 		insertDto.setTitle(title);
 		insertDto.setContent(content);
 		insertDto.setWriter(writer);
@@ -61,7 +61,7 @@ public class BoardEx {
 		System.out.print("bno 입력 : ");
 		int bno = Integer.parseInt(sc.nextLine());
 
-		BoardDto readDto = dao.getRow(bno);
+		BoardDTO readDto = dao.getRow(bno);
 
 		System.out.println("----------------------------------");
 		System.out.printf("번호 : %d\n", readDto.getBno());
@@ -96,7 +96,7 @@ public class BoardEx {
 
 	public void update(int bno) {
 		// 수정 내용 입력 받기
-		BoardDto updateDto = new BoardDto();
+		BoardDTO updateDto = new BoardDTO();
 		updateDto.setBno(bno);
 		System.out.print("제목 : ");
 		updateDto.setTitle(sc.nextLine());

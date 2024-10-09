@@ -1,6 +1,6 @@
-package ch01;
+package ch02;
 
-public class UserDto {
+public class UserDTO {
 	private String userid; 
 	private String name; 
 	private String password;
