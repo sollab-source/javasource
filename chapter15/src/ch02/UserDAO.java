@@ -88,17 +88,19 @@ public class UserDAO {
 		return userDto;
 	}
 
-	public int delete(String userid) {
+	// 아이디와 비밀번호가 일치하는 경우 user 삭제
+	public int delete(String userid, String password) {
 
 		int rows = 0;
 		try {
 
 			con = getConnection();
 
-			String sql = "DELETE FROM userTBL WHERE userid = ?";
+			String sql = "DELETE FROM userTBL WHERE userid = ? and password = ?";
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, userid);
+			pstmt.setString(2, password);
 
 			rows = pstmt.executeUpdate();
 
@@ -110,8 +112,9 @@ public class UserDAO {
 		return rows;
 	}
 
+	// 사용자의 이메일 수정
 	public int update(UserDTO updateDto) {
-
+		
 		int rows = 0;
 		try {
 
