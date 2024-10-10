@@ -9,6 +9,8 @@ public class BoardDTO {
 	private String writer;
 	private Date regDate;
 	
+	// getter,setter,toString 메소드 작성
+	
 	public int getBno() {
 		return bno;
 	}

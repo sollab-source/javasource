@@ -48,6 +48,16 @@ create table boards(
 -- 시퀀스 생성(게시물 번호 증가)
 CREATE SEQUENCE board_seq;
 
+-- 실습용 데이터 입력
+INSERT INTO boards(bno,title,content,writer)
+VALUES(board_seq.nextval,'JDBC 개념','JDBC 개념에 대한 이해','emily');
+
+INSERT INTO boards(bno,title,content,writer)
+VALUES(board_seq.nextval,'ConnectionPool 개념','ConnectionPool 개념에 대한 이해','jenny');
+
+INSERT INTO boards(bno,title,content,writer)
+VALUES(board_seq.nextval,'메서드 개념','메서드 개념에 대한 이해','winter');
+
 
 
 
