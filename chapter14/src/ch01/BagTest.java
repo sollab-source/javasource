@@ -1,11 +1,11 @@
 package ch01;
 
-public class Bag {
+public class BagTest {
 
 	private String name;
 	private Long price;
 
-	public Bag(String name, Long price) {
+	public BagTest(String name, Long price) {
 		this.name = name;
 		this.price = price;
 	}
