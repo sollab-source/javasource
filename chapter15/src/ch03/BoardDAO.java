@@ -1,4 +1,4 @@
-package ch02;
+package ch03;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BoardDao {
+public class BoardDAO {
 
 	private Connection con;
 	private PreparedStatement pstmt;
@@ -61,9 +61,9 @@ public class BoardDao {
 		}
 	}
 
-	public List<BoardDto> getRows() {
+	public List<BoardDTO> getRows() {
 
-		List<BoardDto> list = new ArrayList<BoardDto>();
+		List<BoardDTO> list = new ArrayList<BoardDTO>();
 
 		try {
 
@@ -76,7 +76,7 @@ public class BoardDao {
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				BoardDto board = new BoardDto();
+				BoardDTO board = new BoardDTO();
 				board.setBno(rs.getInt("bno"));
 				board.setTitle(rs.getString("title"));
 				board.setContent(rs.getString("content"));
@@ -93,9 +93,9 @@ public class BoardDao {
 		return list;
 	}
 
-	public BoardDto getRow(int bno) {
+	public BoardDTO getRow(int bno) {
 
-		BoardDto board = null;
+		BoardDTO board = null;
 
 		try {
 
@@ -109,7 +109,7 @@ public class BoardDao {
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				board = new BoardDto();
+				board = new BoardDTO();
 				board.setBno(rs.getInt("bno"));
 				board.setTitle(rs.getString("title"));
 				board.setContent(rs.getString("content"));
@@ -124,7 +124,7 @@ public class BoardDao {
 		return board;
 	}
 
-	public int updateRow(BoardDto dto) {
+	public int updateRow(BoardDTO dto) {
 
 		int result = 0;
 
@@ -191,7 +191,7 @@ public class BoardDao {
 		return result;
 	}
 
-	public int create(BoardDto dto) {
+	public int create(BoardDTO dto) {
 
 		int result = 0;
 

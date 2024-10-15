@@ -1,18 +1,18 @@
-package ch01;
+package ch02;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class UserAddEx {
+public class UserDeleteEx01 {
 
 	public static void main(String[] args) {
 
 		Connection con = null;
 
 		try {
-			// 1. JDBC 드라이버 등록
+			// 1. JDBC 드라이버 로드
 			Class.forName("oracle.jdbc.OracleDriver");
 
 			// 2. Connection 얻기
@@ -26,20 +26,15 @@ public class UserAddEx {
 			con = DriverManager.getConnection(url, user, password);
 
 			// 3. 매개 변수화된 SQL 문 작성
-			String sql = "INSERT INTO usertbl(userid, name, password, age, email) ";
-			sql += "VALUES (?,?,?,?,?)";
+			String sql = "DELETE FROM userTBL WHERE userid = ?";
 
 			// 4. PreparedStatement 얻기 및 값 지정
 			PreparedStatement pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "autumn");
-			pstmt.setString(2, "김가을");
-			pstmt.setString(3, "12345");
-			pstmt.setInt(4, 20);
-			pstmt.setString(5, "autumn@company.com");
+			pstmt.setString(1, "emily");
 
 			// 5. SQL 구문 실행
 			int rows = pstmt.executeUpdate();
-			System.out.println("추가된 user 수 : " + rows);
+			System.out.println("삭제된 user 수 : " + rows);
 
 			pstmt.close();
 

@@ -1,4 +1,4 @@
-package ch01;
+package ch02;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,7 +13,7 @@ public class UserSelectEx {
 		Connection con = null;
 
 		try {
-			// 1. JDBC 드라이버 등록
+			// 1. JDBC 드라이버 로드
 			Class.forName("oracle.jdbc.OracleDriver");
 
 			// 2. Connection 얻기
@@ -31,17 +31,19 @@ public class UserSelectEx {
 
 			// 4. PreparedStatement 얻기 및 값 지정
 			PreparedStatement pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "emily");
+			pstmt.setString(1, "sophia");
 
 			// 5. SQL 구문 실행
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next()) {
-				UserDto userDto = new UserDto();
+				UserDTO userDto = new UserDTO();
 				userDto.setUserid(rs.getString("userid"));
 				userDto.setName(rs.getString("name"));
 				userDto.setPassword(rs.getString("password"));
 				userDto.setAge(rs.getInt("age"));
 				userDto.setEmail(rs.getString("email"));
+
+				System.out.println(userDto);
 			} else {
 				System.out.println("사용자 아이디가 존재하지 않음");
 			}

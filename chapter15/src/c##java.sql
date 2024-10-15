@@ -29,7 +29,7 @@ INSERT INTO usertbl(userid, name, password, age, email)
 VALUES('olivia','올리비아','12345',22,'olivia@company.com');
 
 INSERT INTO usertbl(userid, name, password, age, email)
-VALUES('emliy','에밀리','12345',28,'emliy@company.com');
+VALUES('emily','에밀리','12345',28,'emliy@company.com');
 
 SELECT userid, name, password, age, email
 FROM usertbl
@@ -45,8 +45,18 @@ create table boards(
 	regdate DATE DEFAULT sysdate
 );
 
--- 시퀀스 생성
+-- 시퀀스 생성(게시물 번호 증가)
 CREATE SEQUENCE board_seq;
+
+-- 실습용 데이터 입력
+INSERT INTO boards(bno,title,content,writer)
+VALUES(board_seq.nextval,'JDBC 개념','JDBC 개념에 대한 이해','emily');
+
+INSERT INTO boards(bno,title,content,writer)
+VALUES(board_seq.nextval,'ConnectionPool 개념','ConnectionPool 개념에 대한 이해','jenny');
+
+INSERT INTO boards(bno,title,content,writer)
+VALUES(board_seq.nextval,'메서드 개념','메서드 개념에 대한 이해','winter');
 
 
 

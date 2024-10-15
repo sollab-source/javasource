@@ -1,13 +1,15 @@
-package ch02;
+package ch03;
 
 import java.util.Date;
 
-public class BoardDto {
+public class BoardDTO {
 	private int bno;
 	private String title;
 	private String content;
 	private String writer;
 	private Date regDate;
+	
+	// getter,setter,toString 메소드 작성
 	
 	public int getBno() {
 		return bno;
