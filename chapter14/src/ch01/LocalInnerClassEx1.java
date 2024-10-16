@@ -1,14 +1,12 @@
 package ch01;
 
-
-
 class OuterClass3 {
 	// 외부 클래스 멤버 필드
 	private String secret = "Time is money";
 
 	public void method() {
 		
-		// final 변수임
+		// final 변수
 		int num1 = 10;		
 		
 		// 로컬 내부 클래스 선언

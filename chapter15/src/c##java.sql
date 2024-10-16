@@ -60,8 +60,15 @@ VALUES(board_seq.nextval,'메서드 개념','메서드 개념에 대한 이해',
 
 
 
+-- 트랜잭션 테이블
+CREATE TABLE accounts(
+	account_no varchar(20) PRIMARY KEY,
+	owner varchar(20) NOT NULL,	
+	balance number(10) NOT null
+);
 
-
+INSERT INTO accounts(account_no, owner, balance)
+VALUES('111-111-1111','홍길동',0);
 
 
 
