@@ -1,6 +1,6 @@
 package ch01;
 
-class OuterClass3 {
+class OuterClass4 {
 	// 외부 클래스 멤버 필드
 	private String secret = "Time is money";
 
@@ -36,9 +36,9 @@ class OuterClass3 {
 	}// 외부 클래스 method() 종료
 }// 외부 클래스 종료
 
-public class LocalInnerClassEx1 {
+public class LocalClassEx1 {
 	public static void main(String[] args) {
-		OuterClass3 out = new OuterClass3();
+		OuterClass4 out = new OuterClass4();
 		out.method();
 	}
 }

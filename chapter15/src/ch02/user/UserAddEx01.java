@@ -1,11 +1,11 @@
-package ch02;
+package ch02.user;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class UserDeleteEx01 {
+public class UserAddEx01 {
 
 	public static void main(String[] args) {
 
@@ -26,15 +26,20 @@ public class UserDeleteEx01 {
 			con = DriverManager.getConnection(url, user, password);
 
 			// 3. 매개 변수화된 SQL 문 작성
-			String sql = "DELETE FROM userTBL WHERE userid = ?";
+			String sql = "INSERT INTO usertbl(userid, name, password, age, email) ";
+			sql += "VALUES (?,?,?,?,?)";
 
 			// 4. PreparedStatement 얻기 및 값 지정
 			PreparedStatement pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "emily");
+			pstmt.setString(1, "autumn");
+			pstmt.setString(2, "추가을");
+			pstmt.setString(3, "12345");
+			pstmt.setInt(4, 20);
+			pstmt.setString(5, "autumn@company.com");
 
-			// 5. SQL 구문 실행
+			// 5. SQL 구문 실행 후 실행된 행 수 반환 받기
 			int rows = pstmt.executeUpdate();
-			System.out.println("삭제된 user 수 : " + rows);
+			System.out.println("추가된 user 수 : " + rows);
 
 			pstmt.close();
 

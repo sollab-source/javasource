@@ -36,7 +36,7 @@ public class TransactionEx1 {
 			sql = "UPDATE accounts SET balance = balance + ? WHERE account_no = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, 10000);
-			pstmt.setString(2, "222-222-2222");
+			pstmt.setString(2, "333-333-3333");
 			row = pstmt.executeUpdate();
 			if(row == 0) throw new Exception("입금 불가");
 			pstmt.close();
@@ -48,10 +48,11 @@ public class TransactionEx1 {
 			//트랜잭션 종료 -------------------------------
 		} catch (Exception e) {
 			
+			System.out.println("계좌 이체 실패");
+			
 			try {
 				con.rollback();
 			} catch (Exception e2) {
-				System.out.println("계좌 이체 실패");
 				e2.printStackTrace();
 			}			
 			e.printStackTrace();

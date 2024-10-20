@@ -1,4 +1,4 @@
-package ch02;
+package ch02.user;
 
 public class UserDTO {
 	private String userid; 

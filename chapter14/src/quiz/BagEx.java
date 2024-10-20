@@ -1,6 +1,6 @@
-package ch01;
+package quiz;
 
-import ch01.BagTest.Pouch;
+import quiz.BagTest.Pouch;
 
 public class BagEx {
 
