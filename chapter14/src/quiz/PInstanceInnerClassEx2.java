@@ -52,7 +52,7 @@ class Bag2 {
 
 public class PInstanceInnerClassEx2 {
 	public static void main(String[] args) {
-		Bag bag = new Bag("chanel", 100000L);
+		Bag2 bag = new Bag2("chanel", 100000L);
 		bag.usingInnerClassMethod();		
 	}
 }

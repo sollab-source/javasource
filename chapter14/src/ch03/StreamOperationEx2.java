@@ -1,11 +1,7 @@
 package ch03;
 
-import java.util.ArrayList;
+
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class StreamOperationEx2 {
 
@@ -15,19 +11,21 @@ public class StreamOperationEx2 {
 			
 		// 오름차순 정렬 후 출력
 		System.out.println("오름차순 정렬 후 출력");
-		Arrays.stream(arr).sorted().forEach(System.out::println);
+		Arrays.stream(arr).sorted().forEach((i) -> System.out.print(i+"\t"));
 					
-		System.out.println();
+		System.out.println("\n");
 		
 		// 스트림 변환		
 		System.out.println("짝수 출력");
-		Arrays.stream(arr).filter(i -> i % 2 == 0).forEach(System.out::println);
+		Arrays.stream(arr).filter(i -> i % 2 == 0).forEach((i) -> System.out.print(i+"\t"));
 		
-		System.out.println();
+		System.out.println("\n");
 		
 		System.out.println("2의 배수가 아니고, 3의 배수도 아닌 숫자 출력");
-		Arrays.stream(arr).filter(i -> i % 2 != 0 && i % 3 != 0).forEach(System.out::println);	
+		Arrays.stream(arr).filter(i -> i % 2 != 0 && i % 3 != 0).forEach((i) -> System.out.print(i+"\t"));	
 	
+		System.out.println("\n");
+		
 		System.out.println("기본형 스트림에 존재하는 통계 메서드");
 		System.out.println("배열 합 " + Arrays.stream(arr).sum());
 		System.out.println("배열 평균 " + Arrays.stream(arr).average());

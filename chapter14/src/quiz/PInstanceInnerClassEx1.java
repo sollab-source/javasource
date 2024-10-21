@@ -1,6 +1,6 @@
 package quiz;
 
-class Bag {
+class Bag1 {
 
 	private String name;
 	private Long price;
@@ -8,7 +8,7 @@ class Bag {
 	// 내부 클래스 참조 변수 선언
 	private Pouch pouch;  
 
-	public Bag(String name, Long price) {
+	public Bag1(String name, Long price) {
 		this.name = name;
 		this.price = price;
 		
@@ -43,7 +43,7 @@ class Bag {
 
 public class PInstanceInnerClassEx1 {
 	public static void main(String[] args) {
-		Bag bag = new Bag("chanel", 100000L);
+		Bag1 bag = new Bag1("chanel", 100000L);
 		bag.usingInnerClassMethod();		
 	}
 }
