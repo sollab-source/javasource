@@ -3,6 +3,7 @@ package ch01;
 class OuterClass4 {
 	// 외부 클래스 멤버 필드
 	private String secret = "Time is money";
+	static int outerCv = 0;
 
 	public void method() {
 		
@@ -24,9 +25,14 @@ class OuterClass4 {
 			}
 
 			void print() {				
-				// 외부 클래스 멤버 필드 사용
-				System.out.println(secret);
+				// 외부 클래스 멤버 변수 사용
+				System.out.println("외부 클래스 멤버 변수 "+secret+", static "+outerCv);
+				
+				// 값 변경 불가 에러 발생
+				// num1 은 final 이 없어도 final 로 처리됨
+				// num1 = 20;
 				System.out.println("method 내 선언된 로컬 변수 : "+num1);
+				
 				System.out.println("로컬 내부 클래스 멤버 : "+field1+" "+field2);
 			}			
 		} // 로컬 내부 클래스 종료

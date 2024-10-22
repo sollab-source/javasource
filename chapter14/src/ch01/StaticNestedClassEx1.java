@@ -1,7 +1,7 @@
 package ch01;
 
 class OuterClass1 {
-	// 외부 클래스 인스턴스 변수
+	// 외부 클래스 멤버 변수
 	private int iPos = 10;
 	// 외부 클래스 정적 변수
 	private static int sPos = 20;
@@ -15,7 +15,8 @@ class OuterClass1 {
 		static int sNum = 200; 
 
 		void method1() {
-			// 에러 발생(내부 정적 클래스에서 외부 멤버 변수 사용 불가)
+			// 에러 발생
+			// 내부 정적 클래스에서 외부 멤버 변수 사용 불가
 			// iPos += 10;		
 			
 			System.out.println("정적 중첩 클래스 멤버 / 정적 변수");
@@ -26,7 +27,8 @@ class OuterClass1 {
 		}
 
 		static void method2() {
-			// 사용불가
+			// 에러 발생
+			// static 메소드에서 멤버 변수 사용 불가
 			// iNum += 10;
 			
 			System.out.println();
