@@ -12,27 +12,31 @@ class Bag {
 	}
 
 	class Pouch {
-		private String pouchName;
+		
 		private String color;		
 		
-		static int k = 5;		
-		static final int cost = 5000;		
+		// 파우치 가격	
+		static final int COST = 5000;	
+		// 파우치 이름
+		static final String POUCH_NAME = "sunflower";
 
-		public Pouch(String pouchName, String color) {
-			super();
-			this.pouchName = pouchName;
+		public Pouch(String color) {
+			super();			
 			this.color = color;
 		}
 		
-		public void printMember() {
+		public void info() {
 			// 외부 클래스의 멤버에 접근 가능 
 			System.out.println("Bag name = " + name);
 			// 외부 클래스의 멤버에 접근 가능 
 			System.out.println("Bag price = " + price);
+			
+			System.out.println();
 
-			// 내부 클래스의 멤버 사용
-			System.out.println("pouchName = " + pouchName); 
-			System.out.println("color = " + color); 
+			// 내부 클래스의 멤버 사용			
+			System.out.println("PouchName = " + POUCH_NAME); 
+			System.out.println("Cost = " + COST); 
+			System.out.println("Color = " + color); 
 		}		
 	}
 }
@@ -44,10 +48,7 @@ public class BagEx {
 		//inner 클래스의 경우에는 직접 객체 생성 불가
 		//Pouch pouch = new Pouch();
 		
-		Bag.Pouch p = bag.new Pouch("channel pouch","blue");
-		p.printMember();	
-		
-		// Pouch 가 가지고 있는 static 접근
-		System.out.println(Bag.Pouch.k);
+		Bag.Pouch p = bag.new Pouch("blue");
+		p.info();		
 	}
 }
