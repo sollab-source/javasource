@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.stream.Stream;
 
-public class StreamEx2 {
+public class QuizEx4 {
 	public static void main(String[] args) {
 		String[] fruitArr = {"apple","watermelon","banana", "kiwi","grape"};
 				

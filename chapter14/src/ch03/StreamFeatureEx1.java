@@ -5,8 +5,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
-public class FromArrayCollectionStreamEx2 {
+public class StreamFeatureEx1 {
 	public static void main(String[] args) {
 		
 		// 배열과 컬렉션의 소스를 정렬 후 출력
@@ -46,5 +48,14 @@ public class FromArrayCollectionStreamEx2 {
 		strList2.stream().sorted(Comparator.reverseOrder()).forEach(s -> System.out.print(s+"\t"));
 		System.out.println();
 		System.out.println("정렬 후 원본 확인 "+ strList2);
+		
+		System.out.println();
+		
+		// 스트림 재사용 불가
+		IntStream intStream1 = IntStream.rangeClosed(1, 5);
+		intStream1.forEach(System.out::print);
+		System.out.println();
+		//에러발생 : stream has already been operated upon or closed
+		long count = intStream1.count();
 	}	
 }
