@@ -72,16 +72,17 @@ VALUES('111-111-1111','홍길동',0);
 
 
 -- Quiz 
-CREATE TABLE todo(
-	no number(8) PRIMARY KEY,
-	title varchar2(100) NOT NULL,
-	created_at timestamp(6) NOT NULL,
-	modified_at timestamp(6),
-	completed char(1) DEFAULT 0,
-	important char(1) DEFAULT 0	
+CREATE TABLE PRODUCT(
+	pid VARCHAR2(10) PRIMARY KEY,             
+    name VARCHAR2(128), 
+    PRICE NUMBER(30,2),
+    quantity NUMBER
 );
 
-CREATE SEQUENCE todo_seq;
+CREATE SEQUENCE product_seq;
+
+INSERT INTO product(pid,name,price,quantity) 
+VALUES (product_seq.nextval,'신발',87000,20);
 
 
 

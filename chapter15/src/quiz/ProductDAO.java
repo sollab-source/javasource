@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TodoDAO {
+public class ProductDAO {
 
 	private Connection con;
 	private PreparedStatement pstmt;
@@ -62,27 +62,28 @@ public class TodoDAO {
 		}
 	}
 
-	public List<TodoDTO> getRows() {
+	public List<ProductDTO> getProducts() {
 
-		List<TodoDTO> todos = new ArrayList<TodoDTO>();
+		List<ProductDTO> products = new ArrayList<ProductDTO>();
 
 		try {
 
 			con = getConnection();
 
-			String sql = "SELECT no, title, created_at, completed, important FROM todo ";
-			sql += "ORDER BY no DESC";
+			String sql = "SELECT pid, name, price, quantity FROM product ";
+			sql += "ORDER BY pid DESC";
 
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				TodoDTO todo = new TodoDTO();
-				todo.setNo(rs.getInt("no"));
-				todo.setTitle(rs.getString("title"));
-				todo.setCreatedAt(rs.getTimestamp("created_at").toLocalDateTime());
-				todo.setCompleted(rs.getBoolean("important"));
-				todos.add(todo);
+				ProductDTO product = new ProductDTO();
+				product.setPid(rs.getInt("pid"));
+				product.setName(rs.getString("name"));
+				product.setPrice(rs.getInt("price"));
+				product.setQuantity(rs.getInt("quantity"));
+				
+				products.add(product);
 			}
 
 		} catch (Exception e) {
@@ -90,40 +91,40 @@ public class TodoDAO {
 		} finally {
 			close(con, pstmt, rs);
 		}
-		return todos;
+		return products;
 	}
 
-	public TodoDTO getRow(int no) {
+	public ProductDTO getProduct(int pid) {
 
-		TodoDTO todo = null;
+		ProductDTO product = null;
 
 		try {
 
 			con = getConnection();
 
-			String sql = "SELECT no, title, created_at, completed, important FROM todo ";
-			sql += "WHERE bno = ?";
+			String sql = "SELECT pid, name, price, quantity FROM product ";
+			sql += "WHERE pid = ?";
 
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, no);
+			pstmt.setInt(1, pid);
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				todo = new TodoDTO();
-				todo.setNo(rs.getInt("no"));
-				todo.setTitle(rs.getString("title"));
-				todo.setCreatedAt(rs.getTimestamp("created_at").toLocalDateTime());
-				todo.setCompleted(rs.getBoolean("important"));
+				product = new ProductDTO();
+				product.setPid(rs.getInt("pid"));
+				product.setName(rs.getString("name"));
+				product.setPrice(rs.getInt("price"));
+				product.setQuantity(rs.getInt("quantity"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			close(con, pstmt, rs);
 		}
-		return todo;
+		return product;
 	}
 
-	public int updateCompleted(TodoDTO dto) {
+	public int update(ProductDTO dto) {
 
 		int result = 0;
 
@@ -131,11 +132,11 @@ public class TodoDAO {
 
 			Connection con = getConnection();
 
-			String sql = "UPDATE todo SET completed = ? WHERE no = ?";
+			String sql = "UPDATE product SET quantity = quantity - ? WHERE pid = ?";
 
 			PreparedStatement pstmt = con.prepareStatement(sql);
-			pstmt.setBoolean(1, dto.isCompleted());			
-			pstmt.setInt(2, dto.getNo());
+			pstmt.setInt(1, dto.getQuantity());			
+			pstmt.setInt(2, dto.getPid());
 
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -146,7 +147,7 @@ public class TodoDAO {
 		return result;
 	}
 
-	public int deleteRow(int no) {
+	public int delete(int pid) {
 
 		int result = 0;
 
@@ -154,10 +155,10 @@ public class TodoDAO {
 
 			Connection con = getConnection();
 
-			String sql = "DELETE FROM todo WHERE no = ?";
+			String sql = "DELETE FROM product WHERE pid = ?";
 
 			PreparedStatement pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, no);
+			pstmt.setInt(1, pid);
 
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -167,29 +168,8 @@ public class TodoDAO {
 		}
 		return result;
 	}
-
-	public int deleteAll() {
-
-		int result = 0;
-
-		try {
-
-			Connection con = getConnection();
-
-			String sql = "DELETE FROM boards";
-
-			PreparedStatement pstmt = con.prepareStatement(sql);
-			result = pstmt.executeUpdate();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			close(con, pstmt);
-		}
-		return result;
-	}
-
-	public int create(TodoDTO dto) {
+	
+	public int create(ProductDTO dto) {
 
 		int result = 0;
 
@@ -197,13 +177,13 @@ public class TodoDAO {
 
 			Connection con = getConnection();
 
-			String sql = "INSERT INTO todo(no, title, created_at, important) ";
-			sql += "VALUES(todo_seq.nextval, ?, ?, ?)";
+			String sql = "INSERT INTO product(pid, name, price, quantity) ";
+			sql += "VALUES(product_seq.nextval, ?, ?, ?)";
 
 			PreparedStatement pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, dto.getTitle());
-			pstmt.setTimestamp(2,LocalDateTime.now());
-			pstmt.setBoolean(3, dto.isImportant());
+			pstmt.setString(1, dto.getName());			
+			pstmt.setInt(2, dto.getPrice());
+			pstmt.setInt(3, dto.getQuantity());
 
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
