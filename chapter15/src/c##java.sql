@@ -71,10 +71,17 @@ INSERT INTO accounts(account_no, owner, balance)
 VALUES('111-111-1111','홍길동',0);
 
 
+-- Quiz 
+CREATE TABLE todo(
+	no number(8) PRIMARY KEY,
+	title varchar2(100) NOT NULL,
+	created_at timestamp(6) NOT NULL,
+	modified_at timestamp(6),
+	completed char(1) DEFAULT 0,
+	important char(1) DEFAULT 0	
+);
 
-
-
-
+CREATE SEQUENCE todo_seq;
 
 
 
