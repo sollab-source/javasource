@@ -5,7 +5,7 @@ interface MyFunctionInterface1 {
 	int max(int a, int b);
 }
 
-public class LambdaEx1 {
+public class LambdaEx01 {
 	public static void main(String[] args) {
 		// 테스트
 		MyFunctionInterface1 f = (a, b) -> a > b ? a : b;

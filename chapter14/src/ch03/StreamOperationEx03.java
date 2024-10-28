@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-public class StreamOperationEx3 {
+public class StreamOperationEx03 {
 
 	public static void main(String[] args) {
 		int arr[] = { 39, 58, 88, 56, 77, 99, 23 };

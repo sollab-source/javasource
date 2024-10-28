@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class QuizEx6 {
+public class QuizEx06 {
 	public static void main(String[] args) {
 		List<Member> list = Arrays.asList(new Member("홍길동","디자이너")
 				,new Member("김지호","개발자"),new Member("최민수","서버"),

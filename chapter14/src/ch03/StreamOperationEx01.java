@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class StreamOperationEx1 {
+public class StreamOperationEx01 {
 
 	public static void main(String[] args) {
 		List<String> list = new ArrayList<String>();

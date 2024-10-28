@@ -1,6 +1,6 @@
 package ch01;
 
-public class AnonyousClassEx1 {
+public class AnonyousClassEx01 {
 
 	public static void main(String[] args) {
 

@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class StreamFeatureEx1 {
+public class StreamFeatureEx01 {
 	public static void main(String[] args) {
 		
 		// 배열과 컬렉션의 소스를 정렬 후 출력

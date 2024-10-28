@@ -2,7 +2,7 @@ package ch02;
 
 import java.util.function.Predicate;
 
-public class PredicateEx1 {
+public class PredicateEx01 {
 	public static void main(String[] args) {
 		// 인자를 받아 특정 조건 만족 여부
 		Predicate<Integer> predicate1 = i -> i > 10;

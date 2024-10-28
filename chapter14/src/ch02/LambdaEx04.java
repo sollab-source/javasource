@@ -5,11 +5,11 @@ import java.util.function.BiFunction;
 import java.util.function.BiPredicate;
 
 
-public class LambdaEx4 {
+public class LambdaEx04 {
 	public static void main(String[] args) {
 		// 두 개의 인자를 받아서 합 리턴
 		BiFunction<Integer, Integer, Integer> f1 = (x, y) -> x + y;
-		System.out.println("15와 24 중 큰 수는 ? "+f1.apply(15, 24));
+		System.out.println("15와 24 의 합은 ? "+f1.apply(15, 24));
 		
 		// 두 개의 String 을 인자로 받아 하나의 문자열로 리턴
 		BiFunction<String, String, String> f2 = (s1, s2) -> s1.concat(s2);

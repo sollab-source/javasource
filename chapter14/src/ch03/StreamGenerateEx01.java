@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class StreamGenerateEx1 {
+public class StreamGenerateEx01 {
 	public static void main(String[] args) {
 		
 		String strArr[] = {"홍길동","성춘향","이철수","김영희","홍민호"};

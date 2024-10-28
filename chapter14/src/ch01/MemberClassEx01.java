@@ -25,7 +25,7 @@ class OuterClass2 {
 	} // 내부 클래스 종료	
 }// 외부 클래스 종료
 
-public class MemberClassEx1 {
+public class MemberClassEx01 {
 	public static void main(String[] args) {
 		new OuterClass2();		
 	}

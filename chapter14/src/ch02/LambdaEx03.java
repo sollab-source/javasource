@@ -5,7 +5,7 @@ interface MyFunctionInterface3 {
 	void showMsg(String message);
 }
 
-public class LambdaEx3 {
+public class LambdaEx03 {
 	public static void main(String[] args) {
 		// 람다식 생성
 		MyFunctionInterface3 f = s -> System.out.println(s);

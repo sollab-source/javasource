@@ -7,7 +7,7 @@ interface Age{
 }
 
 
-public class AnonyousClassEx2 {
+public class AnonyousClassEx02 {
 
 	public static void main(String[] args) {
 

@@ -40,7 +40,7 @@ class Bag {
 	}
 }
 
-public class QuizEx5 {
+public class QuizEx05 {
 
 	public static void main(String[] args) {
 		Bag bag = new Bag("chanel", 100000L);

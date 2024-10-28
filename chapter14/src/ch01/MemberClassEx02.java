@@ -47,7 +47,7 @@ class OuterClass3 {
 	}
 }// 외부 클래스 종료
 
-public class MemberClassEx2 {
+public class MemberClassEx02 {
 	public static void main(String[] args) {
 		OuterClass3 outer = new OuterClass3();	
 		outer.start();		

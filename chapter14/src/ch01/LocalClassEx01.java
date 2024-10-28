@@ -42,7 +42,7 @@ class OuterClass4 {
 	}// 외부 클래스 method() 종료
 }// 외부 클래스 종료
 
-public class LocalClassEx1 {
+public class LocalClassEx01 {
 	public static void main(String[] args) {
 		OuterClass4 out = new OuterClass4();
 		out.method();

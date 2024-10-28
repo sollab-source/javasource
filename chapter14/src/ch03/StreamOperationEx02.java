@@ -8,7 +8,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class StreamOperationEx2 {
+public class StreamOperationEx02 {
 
 	public static void main(String[] args) {
 		

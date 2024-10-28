@@ -2,7 +2,7 @@ package ch02;
 
 import java.util.function.Consumer;
 
-public class ConsumerEx {
+public class ConsumerEx01 {
 	public static void main(String[] args) {
 		// 인자를 받아 메소드 안에서 사용하는 형태
 		Consumer<String> consumer = t -> System.out.println(t + "21");

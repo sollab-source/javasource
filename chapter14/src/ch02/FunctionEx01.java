@@ -2,7 +2,7 @@ package ch02;
 
 import java.util.function.Function;
 
-public class FunctionEx1 {
+public class FunctionEx01 {
 	public static void main(String[] args) {
 		// String 인자를 받아 Integer 로 반환
 		Function<String, Integer> function1 = t -> Integer.parseInt(t);

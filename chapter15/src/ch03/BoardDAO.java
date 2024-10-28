@@ -93,6 +93,31 @@ public class BoardDAO {
 		return list;
 	}
 
+	public int create(BoardDTO dto) {
+
+		int result = 0;
+
+		try {
+
+			Connection con = getConnection();
+
+			String sql = "INSERT INTO boards(bno, title, content, writer) ";
+			sql += "VALUES(board_seq.nextval, ?, ?, ?)";
+
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, dto.getTitle());
+			pstmt.setString(2, dto.getContent());
+			pstmt.setString(3, dto.getWriter());
+
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(con, pstmt);
+		}
+		return result;
+	}
+
 	public BoardDTO getRow(int bno) {
 
 		BoardDTO board = null;
@@ -191,28 +216,4 @@ public class BoardDAO {
 		return result;
 	}
 
-	public int create(BoardDTO dto) {
-
-		int result = 0;
-
-		try {
-
-			Connection con = getConnection();
-
-			String sql = "INSERT INTO boards(bno, title, content, writer) ";
-			sql += "VALUES(board_seq.nextval, ?, ?, ?)";
-
-			PreparedStatement pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, dto.getTitle());
-			pstmt.setString(2, dto.getContent());
-			pstmt.setString(3, dto.getWriter());
-
-			result = pstmt.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			close(con, pstmt);
-		}
-		return result;
-	}
 }

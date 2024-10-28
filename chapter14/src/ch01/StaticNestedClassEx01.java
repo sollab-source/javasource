@@ -41,7 +41,7 @@ class OuterClass1 {
 	} // 정적중첩클래스 종료	
 }// 외부 클래스 종료
 
-public class StaticNestedClassEx1 {
+public class StaticNestedClassEx01 {
 	public static void main(String[] args) {
 				
 		// 외부 클래스 생성 없이 정적중첩클래스 인스턴스 생성
