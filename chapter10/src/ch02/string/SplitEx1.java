@@ -1,4 +1,4 @@
-package ch10.string;
+package ch02.string;
 
 import java.util.Arrays;
 

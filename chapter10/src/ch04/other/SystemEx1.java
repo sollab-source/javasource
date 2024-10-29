@@ -1,4 +1,4 @@
-package ch10.other;
+package ch04.other;
 
 public class SystemEx1 {
 

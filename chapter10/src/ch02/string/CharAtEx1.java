@@ -1,4 +1,4 @@
-package ch10.string;
+package ch02.string;
 
 public class CharAtEx1 {
 	public static void main(String[] args) {

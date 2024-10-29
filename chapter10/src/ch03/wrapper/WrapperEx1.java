@@ -1,4 +1,4 @@
-package ch10.wrapper;
+package ch03.wrapper;
 
 public class WrapperEx1 {
 

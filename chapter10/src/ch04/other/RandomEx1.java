@@ -1,4 +1,4 @@
-package ch10.other;
+package ch04.other;
 
 public class RandomEx1 {
 	public static void main(String[] args) {

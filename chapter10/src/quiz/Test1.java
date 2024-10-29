@@ -1,4 +1,4 @@
-package ch10.quiz;
+package quiz;
 
 public class Test1 {
 	/* removeChar메서드 선언  */

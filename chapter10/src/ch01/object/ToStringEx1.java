@@ -1,4 +1,4 @@
-package ch10.object;
+package ch01.object;
 
 class Value1 {
 	int x;
