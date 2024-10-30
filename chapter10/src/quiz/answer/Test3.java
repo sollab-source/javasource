@@ -1,8 +1,15 @@
-package quiz;
+package quiz.answer;
 
 public class Test3 {
-	
-	/* extension() 메서드 구현 */
+	/* extension 메서드 구현 */
+
+	public String extension(String filename) {
+		
+		int index = filename.indexOf(".");
+		String ext = filename.substring(index + 1);
+		
+		return ext;
+	}
 
 	public static void main(String[] args) {
 		String filename = "soldesk.txt";
