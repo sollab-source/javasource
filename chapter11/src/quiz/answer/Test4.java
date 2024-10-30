@@ -11,7 +11,7 @@ class KidSizeException extends Exception{
 	KidSizeException(){
 		super("주민등록번호는 13자리 숫자만 입력해야합니다.");
 	}
-}
+} 
 
 public class Test4 {
 
@@ -19,7 +19,7 @@ public class Test4 {
 	private String name;
 	
 	public String getKoreanId() {
-		return koreanId;
+		return koreanId; 
 	}
 	public String getName() {
 		return name;
