@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class ThrowsEx {
 	// 숫자로 바꿔서 구구단 출력
-	public void gugudan(String str) throws Exception {
+	public void gugudan(String str) {
 		int num = Integer.parseInt(str);
 		for (int i = 2; i < 10; i++) {
 			System.out.printf("%d * %d = %d\n", num, i, num * i);
