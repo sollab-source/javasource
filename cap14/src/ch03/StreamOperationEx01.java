@@ -1,6 +1,5 @@
 package ch03;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
@@ -8,13 +7,7 @@ import java.util.stream.Stream;
 public class StreamOperationEx01 {
 
 	public static void main(String[] args) {
-		List<String> list = new ArrayList<String>();
-
-		list.add("Sophia");
-		list.add("Emma");
-		list.add("Olivia");
-		list.add("Isabella");
-		list.add("Mia");
+		List<String> list = Arrays.asList("Sophia","Emma","Olivia","Isabella","Mia");		
 
 		Stream<String> stream = list.stream();
 		// 중간연산 sorted() 수행 후 최종연산 forEach() 실행
