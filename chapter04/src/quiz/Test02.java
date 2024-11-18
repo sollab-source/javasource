@@ -6,7 +6,7 @@ public class Test02 {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		System.out.print("±¸±¸´Ü ¸î ´ÜÀ» Ãâ·ÂÇÒ±î¿ä? ");
+		System.out.print("êµ¬êµ¬ë‹¨ ëª‡ ë‹¨ì„ ì¶œë ¥í• ê¹Œìš”? ");
 		int dan = scanner.nextInt();
 
 		for (int i = 1; i <= 9; i++) {
