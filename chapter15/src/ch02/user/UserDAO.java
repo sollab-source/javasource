@@ -114,7 +114,7 @@ public class UserDAO {
 
 	// 사용자의 이메일 수정
 	public int update(UserDTO updateDto) {
-		
+
 		int rows = 0;
 		try {
 
@@ -135,7 +135,7 @@ public class UserDAO {
 		}
 		return rows;
 	}
-	
+
 	public int insert(UserDTO updateDto) {
 
 		int rows = 0;

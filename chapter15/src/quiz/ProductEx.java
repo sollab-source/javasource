@@ -42,7 +42,7 @@ public class ProductEx {
 		product.setPrice(Integer.parseInt(sc.nextLine()));
 		System.out.print("수량 : ");
 		product.setQuantity(Integer.parseInt(sc.nextLine()));
-		
+
 		int result = dao.create(product);
 		if (result > 0) {
 			System.out.println();
@@ -56,13 +56,13 @@ public class ProductEx {
 
 	public void read() {
 		// todo 조회
-		System.out.println();		
+		System.out.println();
 		System.out.print("조회할 상품번호 : ");
 		int pid = Integer.parseInt(sc.nextLine());
 
 		ProductDTO product = dao.getProduct(pid);
 
-		System.out.println();		
+		System.out.println();
 		System.out.println("[상품 조회]");
 		System.out.println("------------------------------------------------------");
 		System.out.printf("%s%10s%10s%10s\n", "상품번호", "상품명", "가격", "수량");
@@ -74,7 +74,7 @@ public class ProductEx {
 		System.out.println("보조 메뉴 : 1. Update | 2. Delete | 3. List");
 		System.out.print("메뉴 선택 >> ");
 		int menu = Integer.parseInt(sc.nextLine());
-		
+
 		if (menu == 1) {
 			update(pid);
 		} else if (menu == 2) {
@@ -89,13 +89,13 @@ public class ProductEx {
 		// product 삭제
 		System.out.println(dao.delete(pid) == 1 ? "삭제 성공" : "삭제 실패");
 		System.out.println();
-		list();	
+		list();
 	}
 
 	public void update(int pid) {
 		// product 수정
 		ProductDTO updateDto = new ProductDTO();
-		updateDto.setPid(pid);		
+		updateDto.setPid(pid);
 		System.out.print("수량 : ");
 		updateDto.setQuantity(Integer.parseInt(sc.nextLine()));
 
@@ -118,7 +118,7 @@ public class ProductEx {
 
 			switch (menu) {
 			case 1 -> create();
-			case 2 -> read();			
+			case 2 -> read();
 			case 3 -> System.exit(0);
 			}
 		}

@@ -1,5 +1,6 @@
 package ch03;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
@@ -7,39 +8,48 @@ import java.util.stream.Stream;
 public class StreamOperationEx01 {
 
 	public static void main(String[] args) {
-		List<String> list = Arrays.asList("Sophia","Emma","Olivia","Isabella","Mia");		
+		List<String> list = Arrays.asList("Sophia","Emma",
+				"Olivia","Isabella","Mia");
 
 		Stream<String> stream = list.stream();
-		// ì¤‘ê°„ì—°ì‚° sorted() ìˆ˜í–‰ í›„ ìµœì¢…ì—°ì‚° forEach() ì‹¤í–‰
+		// Áß°£¿¬»ê sorted() ¼öÇà ÈÄ ÃÖÁ¾¿¬»ê forEach() ½ÇÇà
 		stream.sorted().forEach(System.out::println);
 
-		// ì—ëŸ¬ ë°œìƒ - 20ë²ˆ í–‰ ìˆ˜í–‰ í›„ ìŠ¤íŠ¸ë¦¼ì€ ì´ë¯¸ ë‹«íž˜
-		// stream.filter(s -> s.contains("m")).forEach(System.out::println);
+		// ¿¡·¯ ¹ß»ý - 20¹ø Çà ¼öÇà ÈÄ ½ºÆ®¸²Àº ÀÌ¹Ì ´ÝÈû
+		// stream.filter(s -> s.contains("m"))
+		//					   .forEach(System.out::println);
 
-		// ìŠ¤íŠ¸ë¦¼ ë³€í™˜
-		System.out.println("m or M ì´ ë“¤ì–´ê°„ ì´ë¦„ ì¶œë ¥");
-		list.stream().filter(s -> s.toUpperCase().contains("M")).forEach(System.out::println);
+		// ½ºÆ®¸² º¯È¯
+		System.out.println("m or M ÀÌ µé¾î°£ ÀÌ¸§ Ãâ·Â");
+		list.stream().filter(s -> s.toUpperCase()
+								   .contains("M"))
+								   .forEach(System.out::println);
 
 		System.out.println();
-		System.out.println("ì´ë¦„ ê¸¸ì´ê°€ 5ìž ì´ìƒì¸ ì´ë¦„ ì¶œë ¥");
-		list.stream().filter(s -> s.length() >= 5).forEach(System.out::println);
+		System.out.println("ÀÌ¸§ ±æÀÌ°¡ 5ÀÚ ÀÌ»óÀÎ ÀÌ¸§ Ãâ·Â");
+		list.stream().filter(s -> s.length() >= 5)
+			.forEach(System.out::println);
 
-		
-		int arr[] = {39,58,88,56,77,99,23};
-		
-		// ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬ í›„ ì¶œë ¥
-		System.out.println("ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬ í›„ ì¶œë ¥");
-		Arrays.stream(arr).sorted().forEach((i) -> System.out.print(i + "\t"));
+		int arr[] = { 39, 58, 88, 56, 77, 99, 23 };
 
-		System.out.println("\n");
-
-		// ìŠ¤íŠ¸ë¦¼ ë³€í™˜
-		System.out.println("ì§ìˆ˜ ì¶œë ¥");
-		Arrays.stream(arr).filter(i -> i % 2 == 0).forEach((i) -> System.out.print(i + "\t"));
+		// ¿À¸§Â÷¼ø Á¤·Ä ÈÄ Ãâ·Â
+		System.out.println("¿À¸§Â÷¼ø Á¤·Ä ÈÄ Ãâ·Â");
+		Arrays.stream(arr).sorted()
+			  .forEach((i) -> System.out.print(i + "\t"));
 
 		System.out.println("\n");
 
-		System.out.println("2ì˜ ë°°ìˆ˜ê°€ ì•„ë‹ˆê³ , 3ì˜ ë°°ìˆ˜ë„ ì•„ë‹Œ ìˆ«ìž ì¶œë ¥");
-		Arrays.stream(arr).filter(i -> i % 2 != 0 && i % 3 != 0).forEach((i) -> System.out.print(i + "\t"));
+		// ½ºÆ®¸² º¯È¯
+		System.out.println("Â¦¼ö Ãâ·Â");
+		Arrays.stream(arr).filter(i -> i % 2 == 0)
+			  .forEach((i) -> System.out.print(i + "\t"));
+
+		System.out.println("\n");
+
+		System.out.println("2ÀÇ ¹è¼ö°¡ ¾Æ´Ï°í,"
+				+ " 3ÀÇ ¹è¼öµµ ¾Æ´Ñ ¼ýÀÚ Ãâ·Â");
+		Arrays.stream(arr)
+			  .filter(i -> i % 2 != 0 && i % 3 != 0)
+			  .forEach((i) -> System.out.print(i + "\t"));
 	}
 }

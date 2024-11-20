@@ -82,7 +82,7 @@ public class ProductDAO {
 				product.setName(rs.getString("name"));
 				product.setPrice(rs.getInt("price"));
 				product.setQuantity(rs.getInt("quantity"));
-				
+
 				products.add(product);
 			}
 
@@ -135,7 +135,7 @@ public class ProductDAO {
 			String sql = "UPDATE product SET quantity = quantity - ? WHERE pid = ?";
 
 			PreparedStatement pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, dto.getQuantity());			
+			pstmt.setInt(1, dto.getQuantity());
 			pstmt.setInt(2, dto.getPid());
 
 			result = pstmt.executeUpdate();
@@ -168,7 +168,7 @@ public class ProductDAO {
 		}
 		return result;
 	}
-	
+
 	public int create(ProductDTO dto) {
 
 		int result = 0;
@@ -181,7 +181,7 @@ public class ProductDAO {
 			sql += "VALUES(product_seq.nextval, ?, ?, ?)";
 
 			PreparedStatement pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, dto.getName());			
+			pstmt.setString(1, dto.getName());
 			pstmt.setInt(2, dto.getPrice());
 			pstmt.setInt(3, dto.getQuantity());
 

@@ -37,28 +37,28 @@ public class UserMain {
 	}
 
 	public void userRead() {
-		
+
 		System.out.print("검색할 아이디 입력 >> ");
 		String userid = sc.nextLine();
-		
+
 		UserDTO user = dao.select(userid);
-		
+
 		System.out.println();
 		System.out.println("조회 결과");
 		System.out.println("==============");
-		System.out.println("▶ 아이디 : "+user.getUserid());
-		System.out.println("▶ 비밀번호 : "+user.getPassword());
-		System.out.println("▶ 이메일 : "+user.getEmail());
-		System.out.println("▶ 이름 : "+user.getName());
-		System.out.println("▶ 나이 : "+user.getAge());			
+		System.out.println("▶ 아이디 : " + user.getUserid());
+		System.out.println("▶ 비밀번호 : " + user.getPassword());
+		System.out.println("▶ 이메일 : " + user.getEmail());
+		System.out.println("▶ 이름 : " + user.getName());
+		System.out.println("▶ 나이 : " + user.getAge());
 	}
 
 	public void userCreate() {
-		
+
 		System.out.println();
 		System.out.println("[user 추가]");
 		System.out.println("==============");
-		
+
 		// 새 user를 추가하기 위한 정보 입력받기
 		UserDTO insertDto = new UserDTO();
 		System.out.print("▶ 아이디 : ");
@@ -69,62 +69,62 @@ public class UserMain {
 		insertDto.setEmail(sc.nextLine());
 		System.out.print("▶ 이름 : ");
 		insertDto.setName(sc.nextLine());
-		System.out.print("▶ 나이 : ");	
+		System.out.print("▶ 나이 : ");
 		insertDto.setAge(Integer.parseInt(sc.nextLine()));
 		System.out.println();
-		
-		int row = dao.insert(insertDto);	
+
+		int row = dao.insert(insertDto);
 		System.out.println("====================");
-		
-		if(row > 0) {
-			System.out.printf("%s 님 등록완료\n",insertDto.getName());
-		}else {
-			System.out.printf("%s 님 등록실패\n",insertDto.getName());
-		}		
+
+		if (row > 0) {
+			System.out.printf("%s 님 등록완료\n", insertDto.getName());
+		} else {
+			System.out.printf("%s 님 등록실패\n", insertDto.getName());
+		}
 	}
 
 	public void userUpdate() {
 		System.out.println();
 		System.out.println("[user 수정]");
 		System.out.println("==============");
-		
+
 		// user 정보를 수정하기 위한 정보 입력받기
 		UserDTO updateDto = new UserDTO();
 		System.out.print("▶ 아이디 : ");
-		updateDto.setUserid(sc.nextLine());		
+		updateDto.setUserid(sc.nextLine());
 		System.out.print("▶ 변경 이메일 : ");
-		updateDto.setEmail(sc.nextLine());		
+		updateDto.setEmail(sc.nextLine());
 		System.out.println();
-		
-		int row = dao.update(updateDto);	
+
+		int row = dao.update(updateDto);
 		System.out.println("================================");
-		
-		if(row > 0) {
-			System.out.printf("%s 로 이메일이 변경되었습니다.\n",updateDto.getEmail());
-		}else {
-			System.out.printf("%s 로 이메일이 변경되었습니다.\n",updateDto.getEmail());
-		}		
+
+		if (row > 0) {
+			System.out.printf("%s 로 이메일이 변경되었습니다.\n", updateDto.getEmail());
+		} else {
+			System.out.printf("%s 로 이메일이 변경되었습니다.\n", updateDto.getEmail());
+		}
 	}
 
 	public void userRemove() {
 		System.out.println();
 		System.out.println("[user 삭제]");
 		System.out.println("==============");
-		
-		// user 정보를 삭제하기 위한 정보 입력받기		
+
+		// user 정보를 삭제하기 위한 정보 입력받기
 		System.out.print("▶ 아이디 : ");
-		String userid = sc.nextLine();		
+		String userid = sc.nextLine();
 		System.out.print("▶ 비밀번호 : ");
 		String password = sc.nextLine();
 		System.out.println();
-		
-		int row = dao.delete(userid,password);	
+
+		int row = dao.delete(userid, password);
 		System.out.println("================================");
-		
-		if(row > 0) {
-			System.out.printf("%s 삭제 완료\n",userid);
-		}else {
-			System.out.printf("%s 삭제 완료\n",userid);
-		}		
+
+		if (row > 0) {
+			System.out.printf("%s 삭제 완료\n", userid);
+		} else {
+			System.out.printf("%s 삭제 완료\n", userid);
+		}
 	}
 }
